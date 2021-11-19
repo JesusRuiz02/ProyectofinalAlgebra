@@ -5,9 +5,14 @@ using System.Linq;
 public class ListRandom : MonoBehaviour
 {
     public List<int> Randomlist = new List<int>();
-    public List<int> Comparison = new List<int>();
+    public List<AudioSource> Randomlista = new List<AudioSource>();
+    public List<AudioSource> Comparison = new List<AudioSource>();
+    public AudioSource[] clips;
+
+
 
     public int l = 3;
+    public int valid = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,23 +30,31 @@ public class ListRandom : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-               print(hit.transform.name); 
-               Comparison.Add(int.Parse(hit.transform.name));
+               print(hit.transform.name);
+               GameObject a = GameObject.FindGameObjectWithTag(hit.transform.name); 
+               Comparison.Add(a.GetComponent<AudioSource>());
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            bool isEqual = Enumerable.SequenceEqual(Randomlist.OrderBy(e => e), Comparison.OrderBy(e => e));
-            if (isEqual)
+            
+            for(int i=0; i<l; i++)
             {
-             print("es igual");
+                if (Randomlista[i].clip!=Comparison[i].clip)
+                {
+                    valid++;
+                }
+            }
+            if (valid>0)
+            {
+                print("Diferente");
             }
             else
             {
-                print("No es igual");
+                print("Igual");
             }
-            Randomlist.Clear();
+            Randomlista.Clear(); 
             Comparison.Clear();
             l++;
             StartCoroutine(Mov_seq());
@@ -56,15 +69,17 @@ public class ListRandom : MonoBehaviour
         {
             for (int i = 0; i < l; i++)
             {
-                Randomlist.Add(Random.Range(1,5));
+                Randomlista.Add(clips[Random.Range(0,4)]);
             }
         
-            foreach (int n in Randomlist)
+            foreach (AudioSource n in Randomlista)
             {
-                GameObject objeto_e = GameObject.FindGameObjectWithTag(n.ToString());
-                objeto_e.transform.position += new Vector3(0, 1, 0);
-                yield return new WaitForSeconds(1);
-                objeto_e.transform.position -= new Vector3(0, 1, 0);
+                n.Play();
+                while (n.isPlaying)
+                {
+                     yield return null;
+                }
+     
             }
         }   
     }
