@@ -36,6 +36,32 @@ public class ListRandom : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            GameObject a = GameObject.FindGameObjectWithTag("1");
+            Comparison.Add(a.GetComponent<AudioSource>());
+        }
+        
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            GameObject a = GameObject.FindGameObjectWithTag("2");
+            Comparison.Add(a.GetComponent<AudioSource>());
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            GameObject a = GameObject.FindGameObjectWithTag("3");
+            Comparison.Add(a.GetComponent<AudioSource>());
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            GameObject a = GameObject.FindGameObjectWithTag("4");
+            Comparison.Add(a.GetComponent<AudioSource>());
+        }
+
+
+
+            
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             

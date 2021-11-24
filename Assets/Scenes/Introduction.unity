@@ -425,7 +425,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 780c65839bb7376439517c4ca5026108, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 64700c95d93c9fc4d88b7715fb8b4ec7, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -618,7 +618,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5b904137e4c52eb45a80f20ad40f8c6f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6b20638d4ff48bb469658bb9ccda1099, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -748,7 +748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Intrucciones:
-  - {fileID: 8300000, guid: 780c65839bb7376439517c4ca5026108, type: 3}
+  - {fileID: 8300000, guid: 64700c95d93c9fc4d88b7715fb8b4ec7, type: 3}
   audiosource: {fileID: 1068866705}
   audioManager: {fileID: 1749275684}
   flag: 0
