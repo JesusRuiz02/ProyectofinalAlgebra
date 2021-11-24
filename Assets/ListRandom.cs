@@ -64,22 +64,33 @@ public class ListRandom : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            
-            for(int i=0; i<l; i++)
+
+            if (Randomlista.Count==Comparison.Count)
             {
-                if (Randomlista[i].clip!=Comparison[i].clip)
+                for(int i=0; i<l; i++)
                 {
-                    valid++;
+                    if (Randomlista[i].clip!=Comparison[i].clip)
+                    {
+                        valid++;
+                    }
+                }
+                if (valid>0)
+                {
+                    print("Diferente");
+                }
+                else
+                {
+                    print("Igual");
                 }
             }
-            if (valid>0)
+
+            if (Randomlista.Count != Comparison.Count)
             {
-                print("Diferente");
+                print("No tienen la misma longitud");
             }
-            else
-            {
-                print("Igual");
-            }
+
+        
+            
             Randomlista.Clear(); 
             Comparison.Clear();
             l++;
