@@ -10,13 +10,13 @@ public class ListRandom : MonoBehaviour
     public List<AudioSource> Comparison = new List<AudioSource>();
     public AudioSource[] clips;
     private Pause _pause;
-    public bool flag=true;
-    public List<AudioSource> preguntas;
-    public int score = 0;
+    public AudioSource correct;
+    public AudioSource error;
+    private bool flag=true;
+    int score = 0;
     public int x;
-
-    public int l = 3;
-    public int valid = 0;
+    public int l = 2;
+    private int valid = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +64,7 @@ public class ListRandom : MonoBehaviour
         }
 
 
+       
 
             
 
@@ -82,13 +83,17 @@ public class ListRandom : MonoBehaviour
                 if (valid>0)
                 {
                     print("Diferente");
+                    error.Play();
                     score--;
+                    valid = 0;
 
                 }
                 else
                 {
                     print("Igual");
+                    correct.Play();
                     score++;
+                    valid = 0;
                 }
             }
 
@@ -106,13 +111,7 @@ public class ListRandom : MonoBehaviour
             l++;
             StartCoroutine(Mov_seq());
         }
-
-        if (l==5)
-        {
-            x = Random.Range(0, 1);
-            preguntas[x].Play();
-            
-        }
+        
 
         if (l==7)
         {
@@ -126,18 +125,21 @@ public class ListRandom : MonoBehaviour
             }
         }
 
-       
+        
+
+           
+
+
+
     }
 
 
   
         IEnumerator Mov_seq()
         {
-
-            if (l==5)
-            {
-                yield return new WaitForSeconds(10);
-            }
+            yield return new WaitForSeconds(2);
+           
+            
             for (int i = 0; i < l; i++)
             {
                     Randomlista.Add(clips[Random.Range(0,4)]);
@@ -153,7 +155,7 @@ public class ListRandom : MonoBehaviour
      
                 }
             
-            
+               
         }
 
       /*  public void Paus()

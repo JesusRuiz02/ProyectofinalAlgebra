@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ganaste.unity
     guid: 766fcd70b88bb124db3b8e4011a63ba4
+  - enabled: 1
+    path: Assets/Scenes/Preguntas.unity
+    guid: 3716b1f205f521e47842dafab028b724
   m_configObjects: {}
